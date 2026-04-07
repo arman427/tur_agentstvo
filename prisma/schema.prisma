@@ -1,0 +1,22 @@
+generator client {
+   provider = "prisma-client"
+   output   = "../src/generated/prisma"
+}
+
+datasource db {
+   provider = "postgresql"
+}
+
+model Tour {
+   id        Int       @id @default(autoincrement())
+   title     String
+   oldPrice  Int?      @map("old_price")
+   price     Int
+   date      DateTime?
+   rating    Float?
+   imageUrl  String?   @map("image_url")
+   createdAt DateTime  @default(now()) @map("created_at")
+   updatedAt DateTime  @updatedAt @map("updated_at")
+
+   @@map("tours")
+}
