@@ -1,4 +1,3 @@
-// import { Tours } from "@/lib/schema";
 import { CatalogFilters } from "./CatalogFilters";
 import { Container } from "./container";
 import { TourItem } from "./TourItem";

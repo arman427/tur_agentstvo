@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-export const useShowButton = ({ threshold = 400 }) => {
-   const [showButton, setShowButton] = useState(false);
+export const useScrollThreshold = (threshold: any) => {
+   const [isPassed, setIsPassed] = useState(false);
 
    useEffect(() => {
       const handleScroll = () => {
          if (window.scrollY > threshold) {
-            setShowButton(true);
+            setIsPassed(true);
          } else {
-            setShowButton(false);
+            setIsPassed(false);
          }
-      }
+      };
       window.addEventListener("scroll", handleScroll);
       return () => {
          window.removeEventListener("scroll", handleScroll);
-      }
+      };
    }, [threshold]);
 
-   return { showButton };
+   return { isPassed };
 }
