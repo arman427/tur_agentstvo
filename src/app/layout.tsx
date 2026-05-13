@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
+import { Toaster } from 'react-hot-toast';
 
 const nunitoSans = Nunito({
    variable: "--font-nunito-sans",
@@ -22,6 +23,7 @@ export default function RootLayout({
          <body
             className={`${nunitoSans.className} antialiased`}
          >
+            <Toaster position="top-right" />
             {children}
          </body>
       </html>

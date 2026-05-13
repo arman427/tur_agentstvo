@@ -11,7 +11,7 @@ export function CatalogFilters() {
                   <Checkbox
                      key={index}
                      value={item.value}
-                     className="border-none bg-gray-100 w-5 h-5 !rounded-md"
+                     className="border-none bg-gray-100 w-5 h-5 !rounded-md transition-colors"
                      id={`checkbox-${String(item.id)}-${String(item.value)}`}
                   />
                   <label

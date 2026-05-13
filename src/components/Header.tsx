@@ -5,9 +5,31 @@ import { Container } from "./container";
 import Link from "next/link";
 import { useScrollThreshold } from "@/hooks/useScrollThreshold";
 import { cn } from "@/lib/utils";
+import { AuthModal } from "./modals/auth-modal/auth-modal";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { LogOutIcon, PackageCheck, SettingsIcon, UserRound } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import { useRouter } from "next/navigation";
 
 export function Header() {
    const { isPassed } = useScrollThreshold(550);
+   const [open, setOpen] = useState(false);
+   const [user, setUser] = useState(null);
+   const router = useRouter();
+
+   useEffect(() => {
+      axios.get('/api/auth/me')
+         .then((res) => setUser(res.data))
+         .catch(() => setUser(null));
+   }, []);
+
+   const handleLogOut = async () => {
+      await axios.post('/api/auth/logout');
+      setUser(null);
+      router.refresh();
+   }
+
 
    return (
       <>
@@ -63,9 +85,38 @@ export function Header() {
 
                   </nav>
 
-                  <button className="text-[15px] bg-link-hover py-3 px-8 hover:bg-foreground hover:text-background">
-                     Войти
-                  </button>
+                  <AuthModal open={open} onClose={() => setOpen(false)} onLogin={(user) => setUser(user)} />
+                  {
+                     user ? (
+                        <DropdownMenu modal={false}>
+                           <DropdownMenuTrigger asChild>
+                              <button className="py-2 px-4 rounded-full border border-accent/20 flex items-start gap-1 text-accent transition-colors hover:border-accent/70 group">
+                                 <UserRound size={20} />
+                                 <span className="text-[15px] text-accent/60 transition-colors group-hover:text-accent">Профиль</span>
+                              </button>
+                           </DropdownMenuTrigger>
+                           <DropdownMenuContent className="bg-background">
+                              <DropdownMenuItem>
+                                 <SettingsIcon />
+                                 Настройки
+                              </DropdownMenuItem>
+                              <DropdownMenuItem>
+                                 <PackageCheck />
+                                 Заказы
+                              </DropdownMenuItem>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem variant="destructive" onClick={handleLogOut}>
+                                 <LogOutIcon />
+                                 Выход
+                              </DropdownMenuItem>
+                           </DropdownMenuContent>
+                        </DropdownMenu>
+                     ) : (
+                        <button onClick={() => setOpen(true)} className="text-[15px] border border-foreground/10 py-3 px-8 transition-colors hover:bg-foreground hover:text-background active:translate-y-0.5">
+                           Войти
+                        </button>
+                     )
+                  }
                </Container>
             </div>
          </header>

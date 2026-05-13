@@ -15,7 +15,7 @@ export function BackToTop() {
    return (
       <button
          className={cn(
-            "fixed z-50 right-10 bottom-10 backdrop-blur-lg bg-white/5 text-accent p-3 shadow-lg border border-black/10 duration-300",
+            "fixed z-50 right-10 bottom-10 backdrop-blur-lg bg-white/5 text-accent p-3 shadow-md border border-black/10 duration-300",
             showButton ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
          )}
          onClick={handleClick}

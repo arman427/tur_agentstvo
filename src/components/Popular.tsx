@@ -8,7 +8,7 @@ export function Popular() {
                <h2 className="text-3xl mb-4">Париж: вход только для влюбленных</h2>
                <p className="mb-2 text-foreground font-semibold text-[15px]">Путешествие с Flyaway — это лучший способ стать ближе к своей собственной планете. Мы уверены, что с нами у вас это получится лучше всего. Уже более десяти лет мы сближаем людей по всему миру.</p>
                <p className="text-[14px] text-gray-400 mb-5">Наша компания не только организовывает вам поездку в самые интересные уголки земного шара, но также даёт возможность вернуться туда самостоятельно, чтобы вновь встретиться со своими друзьями.</p>
-               <button className="bg-accent text-white px-8 py-3 text-sm hover:bg-foreground">В корзину</button>
+               <button className="bg-accent text-white px-8 py-3 text-sm transition-colors hover:bg-foreground">В корзину</button>
             </div>
 
             <div className="col-start-3 col-end-5 h-full">
@@ -39,7 +39,7 @@ export function Popular() {
                   <li>Пристань Надежды</li>
                   <li>Центральный канал</li>
                </ul>
-               <button className="bg-accent text-white px-8 py-3 text-sm hover:bg-foreground">В корзину</button>
+               <button className="bg-accent text-white px-8 py-3 text-sm transition-colors hover:bg-foreground">В корзину</button>
             </div>
          </div>
       </section >

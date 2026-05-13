@@ -69,7 +69,7 @@ export function Footer() {
                <div className="flex items-center justify-between mb-10">
                   <Link
                      href="/"
-                     className="text-3xl font-bold uppercase transition-transform hover:-rotate-3 py-2"
+                     className="text-3xl font-bold uppercase py-2"
                   >
                      Terra Travel
                   </Link>

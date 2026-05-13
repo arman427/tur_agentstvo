@@ -8,15 +8,73 @@ datasource db {
 }
 
 model Tour {
-   id        Int       @id @default(autoincrement())
-   title     String
-   oldPrice  Int?      @map("old_price")
-   price     Int
-   date      DateTime?
-   rating    Float?
-   imageUrl  String?   @map("image_url")
-   createdAt DateTime  @default(now()) @map("created_at")
-   updatedAt DateTime  @updatedAt @map("updated_at")
+   id          Int          @id @default(autoincrement())
+   title       String
+   oldPrice    Int?         @map("old_price")
+   price       Int
+   date        DateTime?
+   rating      Float?
+   imageUrl    String?      @map("image_url")
+   createdAt   DateTime     @default(now()) @map("created_at")
+   updatedAt   DateTime     @updatedAt @map("updated_at")
+   basketItems BasketItem[]
 
    @@map("tours")
+}
+
+model Users {
+   id        Int      @id @default(autoincrement())
+   fullName  String
+   email     String   @unique
+   phone     String
+   password  String
+   createdAt DateTime @default(now())
+   updatedAt DateTime @updatedAt
+   basket    Basket?
+   orders    Order[]
+}
+
+model Basket {
+   id         Int          @id @default(autoincrement())
+   userId     Int?         @unique
+   token      String       @unique
+   totalCount Int          @default(0)
+   createdAt  DateTime     @default(now())
+   updatedAt  DateTime     @updatedAt
+   user       Users?       @relation(fields: [userId], references: [id])
+   items      BasketItem[]
+}
+
+model BasketItem {
+   id        Int      @id @default(autoincrement())
+   basketId  Int
+   tourId    Int
+   createdAt DateTime @default(now())
+   updatedAt DateTime @updatedAt
+   basket    Basket   @relation(fields: [basketId], references: [id])
+   tour      Tour     @relation(fields: [tourId], references: [id])
+}
+
+model Order {
+   id         Int         @id @default(autoincrement())
+   userId     Int?
+   token      String
+   totalCount Int
+   status     OrderStatus
+   paymentId  String?
+   items      Json
+   fullName   String
+   email      String
+   phone      String
+   address    String
+   comment    String?
+   createdAt  DateTime    @default(now())
+   updatedAt  DateTime    @updatedAt
+   user       Users?      @relation(fields: [userId], references: [id])
+}
+
+enum OrderStatus {
+   PENDING
+   COMPLETED
+   CANCELED
 }

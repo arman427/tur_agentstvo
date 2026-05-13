@@ -12,6 +12,8 @@ import { SLIDES } from "@/constants/slides-data"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 export function SwiperWrapper() {
+
+
    return (
       <Swiper
          simulateTouch={false}
@@ -37,16 +39,17 @@ export function SwiperWrapper() {
                   <Image
                      src={slide.img}
                      alt={slide.title}
-                     fill
                      className="slider-img"
+                     quality={100}
+                     fill
                   />
-                  <div className="absolute left-80 top-50 bg-white/5 max-w-2xl h-fit flex flex-col gap-10 text-left backdrop-blur-xl shadow-md shadow-black/20 p-6 rounded-3xl">
+                  <div className="absolute left-80 top-50 bg-white/5 max-w-2xl h-fit flex flex-col gap-10 text-left backdrop-blur-sm shadow-md shadow-black/20 p-6 rounded-3xl">
                      <div className="relative z-99">
-                        <h3 className="uppercase text-4xl font-bold mb-3 swiper-title italic tracking-[1px]">{slide.title}</h3>
+                        <h3 className="uppercase text-4xl font-medium mb-3 swiper-title tracking-[1px]">{slide.title}</h3>
                         <p className="max-w-150 swiper-text">{slide.desc}</p>
                      </div>
                      <div>
-                        <button className="bg-accent py-5 px-10 uppercase font-semibold hover:bg-foreground hover:text-background">Узнать больше</button>
+                        <button className="bg-accent py-5 px-10 uppercase font-semibold transition-colors hover:bg-foreground hover:text-background">Узнать больше</button>
                      </div>
                   </div>
                </div>

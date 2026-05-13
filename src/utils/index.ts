@@ -1,1 +1,0 @@
-export { getBreadcrumbs } from './breadcrumbs'

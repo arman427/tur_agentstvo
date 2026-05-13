@@ -18,4 +18,4 @@ export const useScrollThreshold = (threshold: any) => {
    }, [threshold]);
 
    return { isPassed };
-}
+};

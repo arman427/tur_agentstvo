@@ -9,7 +9,8 @@ import { Tours } from "@/lib/schema";
 
 
 export function TourItem({ item }: { item: Tours }) {
-   const formattedDate = item.date ? format(new Date(item.date), 'dd MMMM yyyy', { locale: ru }) : 'Дата не указана'
+   const formattedDate = item.date ? format(new Date(item.date), 'dd MMMM yyyy', { locale: ru }) : 'Дата не указана';
+
    return (
       <div className="rounded-3xl border border-black/10 w-65 transition-all will-change-transform backface-hidden shadow-xl shadow-black/5 hover:border-black/20">
          <Link href={PAGES.PRODUCTS(item.id)}>
