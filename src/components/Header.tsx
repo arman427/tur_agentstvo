@@ -28,8 +28,7 @@ export function Header() {
       await axios.post('/api/auth/logout');
       setUser(null);
       router.refresh();
-   }
-
+   };
 
    return (
       <>
@@ -112,7 +111,7 @@ export function Header() {
                            </DropdownMenuContent>
                         </DropdownMenu>
                      ) : (
-                        <button onClick={() => setOpen(true)} className="text-[15px] border border-foreground/10 py-3 px-8 transition-colors hover:bg-foreground hover:text-background active:translate-y-0.5">
+                        <button onClick={() => setOpen(true)} className="text-[15px] border border-foreground/10 py-3 px-8 transition-colors hover:bg-accent hover:text-background active:translate-y-0.5">
                            Войти
                         </button>
                      )

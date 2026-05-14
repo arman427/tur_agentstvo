@@ -5,7 +5,7 @@ import { Toaster } from 'react-hot-toast';
 
 const nunitoSans = Nunito({
    variable: "--font-nunito-sans",
-   subsets: ["latin"],
+   subsets: ["latin", "cyrillic"],
 });
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({
    return (
       <html lang="en">
          <body
-            className={`${nunitoSans.className} antialiased`}
+            className={`${nunitoSans.variable} antialiased`}
          >
             <Toaster position="top-right" />
             {children}

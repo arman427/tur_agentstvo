@@ -12,8 +12,6 @@ import { SLIDES } from "@/constants/slides-data"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 export function SwiperWrapper() {
-
-
    return (
       <Swiper
          simulateTouch={false}

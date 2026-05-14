@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       });
 
       const token = await signToken({ id: user.id, email: user.email });
-      const response = NextResponse.json({ message: "OK" }, { status: 201 });
+      const response = NextResponse.json({ message: "Успешный вход", user: { id: user.id, email: user.email } });
       response.cookies.set("token", token, {
          httpOnly: true,
          secure: process.env.NODE_ENV === "production",
