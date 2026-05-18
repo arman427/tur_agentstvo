@@ -1,10 +1,11 @@
-import { CatalogBody } from '@/components';
-import { prisma } from '@/lib/prisma';
+export const dynamic = "force-dynamic";
 
-export default async function CatalogPage() {
-   const toursData = await prisma.tour.findMany({
-      orderBy: { id: 'asc' },
-   });
+import { CatalogBody } from '@/components';
+import { findPizzas, GetSearchParams } from '@/utils/find-pizzas';
+
+export default async function CatalogPage({ searchParams }: { searchParams: GetSearchParams }) {
+   const params = await searchParams;
+   const toursData = await findPizzas(params);
 
    return (
       <>

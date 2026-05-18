@@ -24,8 +24,12 @@ export function LoginForm({ className, onClose, onLogin }: Props) {
          onLogin(response.data.user);
          onClose();
       } catch (error) {
-         toast.error("Ошибка при входе. Попробуйте снова.");
-         console.error(error);
+         if (axios.isAxiosError(error)) {
+            const message = error.response?.data.error || "Ошибка при логине";
+            toast.error(message);
+         } else {
+            toast.error("Неизвестная ошибка");
+         }
       }
    }
 

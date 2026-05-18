@@ -6,11 +6,6 @@ export const FILTERS = [
    },
    {
       id: 2,
-      value: 'title',
-      label: 'Название'
-   },
-   {
-      id: 3,
       value: 'price',
       label: 'Цена'
    }

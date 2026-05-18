@@ -1,15 +1,14 @@
-import { CatalogFilters } from "./CatalogFilters";
+import { CatalogFiltersClient } from "./CatalogFiltersClient";
 import { Container } from "./container";
 import { TourItem } from "./TourItem";
 
 export async function CatalogBody({ items }: { items: any }) {
-
    return (
       <Container className="my-20">
          <div className="flex gap-20">
             {/* Фильтры */}
             <div className="w-80">
-               <CatalogFilters />
+               <CatalogFiltersClient />
             </div>
 
             {/* Список туров */}

@@ -30,8 +30,12 @@ export function RegisterForm({ className, onClose, onLogin }: Props) {
          onLogin(response.data.user);
          onClose();
       } catch (error) {
-         toast.error("Ошибка при регистрации. Попробуйте снова.");
-         console.error(error);
+         if (axios.isAxiosError(error)) {
+            const message = error.response?.data.error || "Ошибка при регистрации";
+            toast.error(message);
+         } else {
+            toast.error("Неизвестная ошибка");
+         }
       }
    }
 
