@@ -57,7 +57,7 @@ export function LoginForm({ className, onClose, onLogin }: Props) {
                {form.formState.errors.password && <p className="text-red-500 text-sm">{form.formState.errors.password.message}</p>}
             </div>
 
-            <button type="submit" className="bg-accent h-13 text-background text-lg active:translate-y-0.5">Войти</button>
+            <button type="submit" className="bg-accent h-13 text-background text-lg active:translate-y-0.5 rounded-full">Войти</button>
          </form>
       </div>
    );

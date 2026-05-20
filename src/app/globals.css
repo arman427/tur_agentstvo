@@ -20,6 +20,7 @@
       --color-link-hover: var(--link-hover);
       --color-muted: var(--muted);
       --color-destructive: var(--destructive);
+      --font-playfair: var(--font-playfair);
    }
 
 
@@ -33,7 +34,6 @@
 
    button {
       @apply cursor-pointer;
-      @apply rounded-full;
    }
 
    @layer base {

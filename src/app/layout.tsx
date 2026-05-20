@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Nunito, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Toaster } from 'react-hot-toast';
 
 const nunitoSans = Nunito({
    variable: "--font-nunito-sans",
+   subsets: ["latin", "cyrillic"],
+});
+
+const playfair = Playfair_Display({
+   variable: "--font-playfair",
    subsets: ["latin", "cyrillic"],
 });
 
@@ -21,7 +26,7 @@ export default function RootLayout({
    return (
       <html lang="en">
          <body
-            className={`${nunitoSans.variable} antialiased`}
+            className={`${nunitoSans.variable} ${playfair.variable} antialiased`}
          >
             <Toaster position="top-right" />
             {children}

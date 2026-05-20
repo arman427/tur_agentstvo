@@ -10,13 +10,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { LogOutIcon, PackageCheck, SettingsIcon, UserRound } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 export function Header() {
    const { isPassed } = useScrollThreshold(550);
    const [open, setOpen] = useState(false);
    const [user, setUser] = useState(null);
-   const router = useRouter();
+   // const router = useRouter();
 
    useEffect(() => {
       axios.get('/api/auth/me')
@@ -27,7 +27,7 @@ export function Header() {
    const handleLogOut = async () => {
       await axios.post('/api/auth/logout');
       setUser(null);
-      router.refresh();
+      window.location.reload();
    };
 
    return (
@@ -111,7 +111,7 @@ export function Header() {
                            </DropdownMenuContent>
                         </DropdownMenu>
                      ) : (
-                        <button onClick={() => setOpen(true)} className="text-[15px] border border-foreground/10 py-3 px-8 transition-colors hover:bg-accent hover:text-background active:translate-y-0.5">
+                        <button onClick={() => setOpen(true)} className="text-[15px] border border-foreground/10 py-3 px-8 transition-colors hover:bg-accent hover:text-background active:translate-y-0.5 rounded-full">
                            Войти
                         </button>
                      )

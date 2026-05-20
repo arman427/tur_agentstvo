@@ -14,7 +14,7 @@ export function Services() {
                   <h4 className="uppercase font-bold my-5 text-xl">{service.title}</h4>
                   <span className="font-semibold text-xl">{service.price}</span>
                   <p className="text-black text-[14px] mb-5">{service.text}</p>
-                  <button className="bg-foreground py-2 px-6 text-background transition-colors hover:bg-accent">{service.button}</button>
+                  <button className="bg-foreground py-2 px-6 text-background transition-colors hover:bg-accent rounded-full">{service.button}</button>
                </div>
             ))}
          </Container>

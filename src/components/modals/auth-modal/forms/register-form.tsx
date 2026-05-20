@@ -66,7 +66,7 @@ export function RegisterForm({ className, onClose, onLogin }: Props) {
                {form.formState.errors.password && <p className="text-red-500 text-sm">{form.formState.errors.password.message}</p>}
             </div>
 
-            <button type="submit" className="bg-accent h-13 text-background text-lg active:translate-y-0.5">Создать аккаунт</button>
+            <button type="submit" className="bg-accent h-13 text-background text-lg active:translate-y-0.5 rounded-full">Создать аккаунт</button>
          </form>
       </div>
    );

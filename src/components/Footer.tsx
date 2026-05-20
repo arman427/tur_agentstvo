@@ -83,7 +83,7 @@ export function Footer() {
                            width={50}
                            height={20}
                            className={cn('', {
-                              'brightness-0': icon.name == 'Apple Pay'
+                              'fill-white': icon.name == 'Apple Pay'
                            })}
                         />
                      ))}

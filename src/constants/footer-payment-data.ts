@@ -9,7 +9,7 @@ export const FOOTER_PAYMENT = [
    },
    {
       name: 'Apple Pay',
-      url: '/ApplePay.svg'
+      url: '/ApplePay_white.svg'
    },
    {
       name: 'Google Pay',

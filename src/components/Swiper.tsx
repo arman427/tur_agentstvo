@@ -47,7 +47,7 @@ export function SwiperWrapper() {
                         <p className="max-w-150 swiper-text">{slide.desc}</p>
                      </div>
                      <div>
-                        <button className="bg-accent py-5 px-10 uppercase font-semibold transition-colors hover:bg-foreground hover:text-background">Узнать больше</button>
+                        <button className="bg-accent py-5 px-10 uppercase font-semibold transition-colors hover:bg-foreground hover:text-background rounded-full">Узнать больше</button>
                      </div>
                   </div>
                </div>

@@ -10,9 +10,10 @@ datasource db {
 model Tour {
    id          Int          @id @default(autoincrement())
    title       String
+   description String
    oldPrice    Int?         @map("old_price")
    price       Int
-   date        DateTime?
+   duration    Int
    rating      Float?
    imageUrl    String?      @map("image_url")
    createdAt   DateTime     @default(now()) @map("created_at")
