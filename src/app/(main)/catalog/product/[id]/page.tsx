@@ -20,7 +20,7 @@ export default async function TourPage({ params }: { params: Promise<{ id: strin
    }
 
    return (
-      <Container className="mt-10 mb-40">
+      <Container className="mt-15 mb-40">
          <div className="flex gap-10 items-stretch">
             <div className="w-150 flex flex-col">
                <div className="w-full flex-1 relative mb-3 min-h-[400px]">
@@ -31,7 +31,7 @@ export default async function TourPage({ params }: { params: Promise<{ id: strin
                      className="object-cover rounded-2xl border border-black/10 shadow-xl shadow-black/10"
                   />
                </div>
-               <div className="w-full bg-blue-500/5 border border-black/5 shadow-sm rounded-2xl flex items-center divide-x divide-black/10 py-6">
+               <div className="w-full bg-accent/10 border border-black/10  rounded-2xl flex items-center divide-x divide-black/20 py-6">
                   <div className="flex-1 flex items-center justify-center gap-2 px-4">
                      <Clock className="stroke-accent" />
                      <p>{item.duration} {formatDuration(item.duration)}</p>
