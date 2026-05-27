@@ -1,9 +1,14 @@
-'use client';
+"use client";
 
 import { Container } from "./container";
 import Link from "next/link";
 import Image from "next/image";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import {
+   Tooltip,
+   TooltipContent,
+   TooltipProvider,
+   TooltipTrigger,
+} from "./ui/tooltip";
 import { FOOTER_LINKS, FOOTER_PAYMENT, SOCIALS } from "@/constants";
 import { cn } from "@/lib/utils";
 
@@ -15,9 +20,14 @@ export function Footer() {
                <nav className="flex gap-15 text-[14px] text-white/50">
                   {FOOTER_LINKS.map((section, index) => (
                      <ul key={index} className="flex flex-col gap-2">
-                        <h4 className="mb-3 text-[15px] text-background">{section.title}</h4>
+                        <h4 className="mb-3 text-[15px] text-background">
+                           {section.title}
+                        </h4>
                         {section.links.map((link) => (
-                           <li key={link.label} className="transition-colors hover:text-background">
+                           <li
+                              key={link.label}
+                              className="transition-colors hover:text-background"
+                           >
                               <a href={link.href}>{link.label}</a>
                            </li>
                         ))}
@@ -36,26 +46,29 @@ export function Footer() {
                   <span className="mt-3 text-[15px]">Наши соц. сети</span>
                   <TooltipProvider skipDelayDuration={0}>
                      <div className="flex gap-5 items-center">
-                        {
-                           SOCIALS.map((social) => (
-                              <Tooltip key={social.name}>
-                                 <TooltipTrigger>
-                                    <a href={social.href} className="relative text-background transition-all group">
-                                       <Image
-                                          src={social.imageUrl}
-                                          alt={social.name}
-                                          width={22}
-                                          height={22}
-                                          className="brightness-0 invert"
-                                       />
-                                    </a>
-                                 </TooltipTrigger>
-                                 <TooltipContent side="bottom">
-                                    <p className="text-background">{social.name}</p>
-                                 </TooltipContent>
-                              </Tooltip>
-                           ))
-                        }
+                        {SOCIALS.map((social) => (
+                           <Tooltip key={social.name}>
+                              <TooltipTrigger>
+                                 <a
+                                    href={social.href}
+                                    className="relative text-background transition-all group"
+                                 >
+                                    <Image
+                                       src={social.imageUrl}
+                                       alt={social.name}
+                                       width={22}
+                                       height={22}
+                                       className="brightness-0 invert"
+                                    />
+                                 </a>
+                              </TooltipTrigger>
+                              <TooltipContent side="bottom">
+                                 <p className="text-background">
+                                    {social.name}
+                                 </p>
+                              </TooltipContent>
+                           </Tooltip>
+                        ))}
                      </div>
                   </TooltipProvider>
                </div>
@@ -67,10 +80,7 @@ export function Footer() {
          <Container>
             <div className="pt-5">
                <div className="flex items-center justify-between mb-10">
-                  <Link
-                     href="/"
-                     className="text-3xl font-bold uppercase py-2"
-                  >
+                  <Link href="/" className="text-3xl font-bold uppercase py-2">
                      Terra Travel
                   </Link>
 
@@ -82,8 +92,8 @@ export function Footer() {
                            alt={icon.name}
                            width={50}
                            height={20}
-                           className={cn('', {
-                              'fill-white': icon.name == 'Apple Pay'
+                           className={cn("", {
+                              "fill-white": icon.name == "Apple Pay",
                            })}
                         />
                      ))}
@@ -91,11 +101,17 @@ export function Footer() {
                </div>
 
                <div className="flex items-center justify-between text-white/50 text-[14px]">
-                  <p>@ 2026 Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                  <p>Интернет-магазин разработан на <span className="text-white">Next.js</span></p>
+                  <p>
+                     @ 2026 Lorem ipsum dolor, sit amet consectetur adipisicing
+                     elit.
+                  </p>
+                  <p>
+                     Интернет-магазин разработан на{" "}
+                     <span className="text-white">Next.js</span>
+                  </p>
                </div>
             </div>
          </Container>
       </footer>
-   )
+   );
 }

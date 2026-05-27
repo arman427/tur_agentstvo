@@ -12,7 +12,8 @@ interface Props {
 }
 
 export function CatalogFilters({ sort, setSort }: Props) {
-   const currentLabel = SORT_OPTIONS.find(o => o.value === sort)?.label ?? "по умолчанию";
+   const currentLabel =
+      SORT_OPTIONS.find((o) => o.value === sort)?.label ?? "по умолчанию";
    const [open, setOpen] = useState(false);
 
    return (
@@ -36,9 +37,15 @@ export function CatalogFilters({ sort, setSort }: Props) {
                   }}
                >
                   {SORT_OPTIONS.map(({ value, label }) => (
-                     <div key={value} className="flex items-center gap-2 p-2 duration-50 ease hover:bg-accent/5">
+                     <div
+                        key={value}
+                        className="flex items-center gap-2 p-2 duration-50 ease hover:bg-accent/5"
+                     >
                         <RadioGroupItem value={value} id={value} />
-                        <label htmlFor={value} className="cursor-pointer text-sm font-normal">
+                        <label
+                           htmlFor={value}
+                           className="cursor-pointer text-sm font-normal"
+                        >
                            {label}
                         </label>
                      </div>

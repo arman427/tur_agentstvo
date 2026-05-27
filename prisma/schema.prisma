@@ -50,6 +50,7 @@ model BasketItem {
    id        Int      @id @default(autoincrement())
    basketId  Int
    tourId    Int
+   quantity  Int      @default(1)
    createdAt DateTime @default(now())
    updatedAt DateTime @updatedAt
    basket    Basket   @relation(fields: [basketId], references: [id])

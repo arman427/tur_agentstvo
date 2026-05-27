@@ -26,11 +26,9 @@ export function TourForm({ className, item }: Props) {
    const { control } = form;
 
    const onSubmit = (data: TourFormSchema) => {
-      console.log({
-         date: data.date,
-         quantity: data.quantity
-      });
+      console.log(item.id);
    }
+
 
    return (
       <form action="" className="border border-black/10 w-full rounded-xl px-6 py-4" onSubmit={form.handleSubmit(onSubmit)}>
@@ -54,7 +52,7 @@ export function TourForm({ className, item }: Props) {
                      />
                   )}
                />
-               <p className="text-red-400 text-sm mt-1 min-h-[20px]">{form.formState.errors.date?.message}</p>
+               <p className="text-red-400 text-sm mt-1 min-h-5">{form.formState.errors.date?.message}</p>
             </div>
             <div className="grid">
                <label htmlFor="" className="text-[14px]">Кол-во</label>
@@ -68,7 +66,7 @@ export function TourForm({ className, item }: Props) {
                      />
                   )}
                />
-               <p className="text-red-400 text-sm mt-1 min-h-[20px]">{form.formState.errors.quantity?.message}</p>
+               <p className="text-red-400 text-sm mt-1 min-h-5">{form.formState.errors.quantity?.message}</p>
             </div>
          </div>
          <button className="mx-auto bg-accent w-full py-3 mt-8 text-background active:translate-y-0.5 rounded-full mb-5" type="submit">В корзину</button>

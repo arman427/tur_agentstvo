@@ -7,6 +7,11 @@ import { Tours } from "@/lib/schema";
 import { formatDuration } from "@/utils/format-duration";
 
 
+
+
+
+
+
 export function TourItem({ item }: { item: Tours }) {
    return (
       <div className="rounded-3xl border border-black/10 w-65 transition-all will-change-transform backface-hidden shadow-xl shadow-black/5 hover:border-black/30 hover:scale-98 hover:shadow-sm">

@@ -1,5 +1,5 @@
 class ApiConfig {
-   PRODUCTS = 'products'
+   BASKET = '/basket'
 }
 
-export const apiConfig = new ApiConfig()
+export const API = new ApiConfig();
